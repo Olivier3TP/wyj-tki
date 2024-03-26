@@ -11,7 +11,13 @@ public class Main {
 //        }
 
         StosWyjatkow stosWyjatkow = new StosWyjatkow();
-        stosWyjatkow.metoda1();
+        try{
+            stosWyjatkow.metoda1();
+        }
+        catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println("XDD");
 
     }
 }
