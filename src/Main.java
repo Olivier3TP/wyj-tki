@@ -1,23 +1,25 @@
 import java.nio.file.Path;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        Scanner scanner = new Scanner(Path.of("tekst.txt"));
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj liczbę którą chcesz zamienic na pierwiastek: ");
 
-//        int[] tab = {1, 2, 3};
-//        for(int i = 0; i<10; i++){
-//            System.out.println(tab[i]);
-//        }
-
-        StosWyjatkow stosWyjatkow = new StosWyjatkow();
         try{
-            stosWyjatkow.metoda1();
+            double liczba = scanner.nextDouble();
+            if(liczba < 0){
+                throw new IllegalArgumentException();
+            }
+            System.out.println(Math.sqrt(liczba));
         }
-        catch (RuntimeException e){
-            System.out.println(e.getMessage());
+        catch (InputMismatchException e){
+            System.out.println("Podaj liczby, nie litery");
         }
-        System.out.println("XDD");
+        catch (IllegalArgumentException e){
+            System.out.println("Podałeś liczbę ujemną");
+        }
 
     }
 }
